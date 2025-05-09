@@ -167,11 +167,16 @@ router.delete('/:id', deletePost);
  *         application/json:
  *           schema:
  *             type: object
+ *             required:
+ *               - username
+ *               - text
  *             properties:
- *               name:
+ *               username:
  *                 type: string
+ *                 description: Name of the user adding the comment
  *               text:
  *                 type: string
+ *                 description: Content of the comment
  *     responses:
  *       200:
  *         description: Comment added successfully

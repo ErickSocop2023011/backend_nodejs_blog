@@ -50,7 +50,7 @@ export const filterPostsValidator = [
     param("sortByDate")
         .optional()
         .isIn(["asc", "desc"])
-        .withMessage("Invalid sort option"),
+        .withMessage("Invalid sort option (asc or desc)"),
     validateFields,
     handleErrors
 ];

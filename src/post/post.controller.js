@@ -30,7 +30,6 @@ export const getPosts = async (req, res) => {
         .skip(Number(from))
         .limit(Number(limit))
         .sort({ date: -1 })
-        //.populate("comments", "name text date")
     ]);
 
     return res.status(200).json({
@@ -52,7 +51,6 @@ export const getPostById = async (req, res) => {
   try {
     const { pid } = await Post.findById(req.params);
     const post = await Post.findById(pid)
-    //.populate("comments", "name text date");
     if(!post){
       return res.status(404).json({
         success: false,
@@ -94,13 +92,12 @@ export const filterPosts = async (req, res) => {
 
 export const addComment = async (req, res) => {
   try {
-    const { name, text } = req.body;
-    if (!name || !text) return res.status(400).json({ error: "Nombre y comentario son obligatorios" });
-
+    const { username, text } = req.body;
+    
     const post = await Post.findById(req.params.id);
     if (!post) return res.status(404).json({ error: "Post no encontrado" });
 
-    post.comments.unshift({ name, text }); // agrega al principio
+    post.comments.unshift({ username, text });
     await post.save();
     res.status(200).json(post);
   } catch (err) {
@@ -108,7 +105,6 @@ export const addComment = async (req, res) => {
   }
 };
 
-// Eliminar publicación
 export const deletePost = async (req, res) => {
   try {
     const deleted = await Post.findByIdAndDelete(req.params.id);
