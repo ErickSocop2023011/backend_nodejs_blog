@@ -1,0 +1,190 @@
+[{
+  "_id": {
+    "$oid": "681d4ee80e33b4b86b8e484a"
+  },
+  "title": "Tareas de la semana",
+  "content": "Presentación de la propuesta",
+  "course": "Technology",
+  "status": true,
+  "comments": [
+    {
+      "username": "eos",
+      "text": "oa",
+      "_id": {
+        "$oid": "68212a8382bbeed2dcafde41"
+      },
+      "date": {
+        "$date": "2025-05-11T22:53:55.285Z"
+      }
+    },
+    {
+      "username": "esocop",
+      "text": "Hola profe!",
+      "_id": {
+        "$oid": "68211b8182bbeed2dcafd2b5"
+      },
+      "date": {
+        "$date": "2025-05-11T21:49:53.300Z"
+      }
+    }
+  ],
+  "date": {
+    "$date": "2025-05-09T00:40:08.884Z"
+  },
+  "createdAt": {
+    "$date": "2025-05-09T00:40:08.889Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-11T22:53:55.287Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "681d4f96a448aee1f84b6355"
+  },
+  "title": "Tareas de la semana",
+  "content": "Avance del proyecto bimestral",
+  "course": "Workshop",
+  "status": true,
+  "comments": [
+    {
+      "username": "Hola Mundo",
+      "text": "Hola Mundo",
+      "_id": {
+        "$oid": "681e8d27c30bffb212079c0c"
+      },
+      "date": {
+        "$date": "2025-05-09T23:17:59.701Z"
+      }
+    },
+    {
+      "username": "Hola Mundo",
+      "text": "Hola Mundo",
+      "_id": {
+        "$oid": "681e8c91448b3c5e271d8ea1"
+      },
+      "date": {
+        "$date": "2025-05-09T23:15:29.648Z"
+      }
+    },
+    {
+      "username": "Hola Mundo",
+      "text": "Hola Mundo",
+      "_id": {
+        "$oid": "681e8c55448b3c5e271d8e9d"
+      },
+      "date": {
+        "$date": "2025-05-09T23:14:29.330Z"
+      }
+    }
+  ],
+  "date": {
+    "$date": "2025-05-09T00:43:02.904Z"
+  },
+  "createdAt": {
+    "$date": "2025-05-09T00:43:02.908Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-09T23:17:59.705Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "681fdba4ab47a518c37d129d"
+  },
+  "title": "string",
+  "content": "No hay Tareas",
+  "course": "Technology",
+  "status": true,
+  "comments": [
+    {
+      "username": "hola",
+      "text": "ewu hnmwv",
+      "_id": {
+        "$oid": "68212ccb82bbeed2dcafdf57"
+      },
+      "date": {
+        "$date": "2025-05-11T23:03:39.503Z"
+      }
+    },
+    {
+      "username": "oaaa",
+      "text": "Oaaaaaaa",
+      "_id": {
+        "$oid": "68211b5782bbeed2dcafd1bf"
+      },
+      "date": {
+        "$date": "2025-05-11T21:49:11.071Z"
+      }
+    },
+    {
+      "username": "esocop",
+      "text": ":0",
+      "_id": {
+        "$oid": "68211b4182bbeed2dcafd1a8"
+      },
+      "date": {
+        "$date": "2025-05-11T21:48:49.352Z"
+      }
+    },
+    {
+      "username": "esocop",
+      "text": "hola mundo",
+      "_id": {
+        "$oid": "68211b1982bbeed2dcafd194"
+      },
+      "date": {
+        "$date": "2025-05-11T21:48:09.442Z"
+      }
+    },
+    {
+      "username": "esocop",
+      "text": "Subanle el sueldo a Braulio",
+      "_id": {
+        "$oid": "68211abd82bbeed2dcafd183"
+      },
+      "date": {
+        "$date": "2025-05-11T21:46:37.444Z"
+      }
+    },
+    {
+      "username": "esocop",
+      "text": "hola",
+      "_id": {
+        "$oid": "68211a9d82bbeed2dcafd175"
+      },
+      "date": {
+        "$date": "2025-05-11T21:46:05.758Z"
+      }
+    },
+    {
+      "username": "string",
+      "text": "string",
+      "_id": {
+        "$oid": "681fe555acbad02166c89020"
+      },
+      "date": {
+        "$date": "2025-05-10T23:46:29.350Z"
+      }
+    },
+    {
+      "username": "string",
+      "text": "string",
+      "_id": {
+        "$oid": "681fe553acbad02166c8901c"
+      },
+      "date": {
+        "$date": "2025-05-10T23:46:27.415Z"
+      }
+    }
+  ],
+  "date": {
+    "$date": "2025-05-10T23:05:08.797Z"
+  },
+  "createdAt": {
+    "$date": "2025-05-10T23:05:08.809Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-11T23:03:39.528Z"
+  }
+}]
