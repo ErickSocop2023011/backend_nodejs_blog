@@ -5,6 +5,7 @@ import morgan from "morgan"
 import apiLimiter from "../src/middlewares/rate-limit-validator.js"
 import { dbConnection } from "./mongo.js"
 import { swaggerDocs, swaggerUi } from "./swagger.js"
+import postRoutes from "../src/post/post.routes.js"
 
 
 const middlewares = (app) => {
@@ -18,6 +19,7 @@ const middlewares = (app) => {
 
 const routes = (app) => {
     app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+    app.use("/kfc-blog/v1/post", postRoutes);
 }
 
 const ConnectDB = async () => {
