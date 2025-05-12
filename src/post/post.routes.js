@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { createPost, getPosts, getPostById, deletePost, addComment, filterPosts } from './post.controller.js';
-import { createPostValidator, filterPostsValidator, addCommentValidator } from '../middlewares/post-validator.js';  
+import { createPostValidator, filterPostsValidator, getPostByIdValidator, addCommentValidator } from '../middlewares/post-validator.js';  
 
 const router = Router();
 
@@ -104,13 +104,13 @@ router.get('/filter', filterPostsValidator, filterPosts);
 
 /**
  * @swagger
- * /post/{id}:
+ * /post/{pid}:
  *   get:
  *     summary: Get a post by ID
  *     tags: [Posts]
  *     parameters:
  *       - in: path
- *         name: id
+ *         name: pid
  *         required: true
  *         schema:
  *           type: string
@@ -123,17 +123,17 @@ router.get('/filter', filterPostsValidator, filterPosts);
  *       500:
  *         description: Error fetching post
  */
-router.get('/:id', getPostById);
+router.get('/:pid',getPostByIdValidator, getPostById);
 
 /**
  * @swagger
- * /post/{id}:
+ * /post/{pid}:
  *   delete:
  *     summary: Delete a post by ID
  *     tags: [Posts]
  *     parameters:
  *       - in: path
- *         name: id
+ *         name: pid
  *         required: true
  *         schema:
  *           type: string
@@ -146,17 +146,17 @@ router.get('/:id', getPostById);
  *       500:
  *         description: Error deleting post
  */
-router.delete('/:id', deletePost);
+router.delete('/:pid', deletePost);
 
 /**
  * @swagger
- * /post/{id}:
+ * /post/{pid}:
  *   patch:
  *     summary: Add a comment to a post
  *     tags: [Posts]
  *     parameters:
  *       - in: path
- *         name: id
+ *         name: pid
  *         required: true
  *         schema:
  *           type: string
@@ -187,6 +187,6 @@ router.delete('/:id', deletePost);
  *       500:
  *         description: Error adding comment
  */
-router.patch('/:id', addCommentValidator, addComment);
+router.patch('/:pid', addCommentValidator, addComment);
 
 export default router;

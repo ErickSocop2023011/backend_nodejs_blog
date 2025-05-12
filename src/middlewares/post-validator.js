@@ -55,6 +55,16 @@ export const filterPostsValidator = [
     handleErrors
 ];
 
+export const getPostByIdValidator = [
+    param("pid")
+        .notEmpty()
+        .withMessage("Post ID is required")
+        .isMongoId()
+        .withMessage("Invalid Post ID format"),
+    validateFields,
+    handleErrors
+]
+
 export const addCommentValidator = [
     body("username")
         .notEmpty()
