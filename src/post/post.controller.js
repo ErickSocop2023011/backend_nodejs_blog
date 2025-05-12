@@ -49,8 +49,8 @@ export const getPosts = async (req, res) => {
 
 export const getPostById = async (req, res) => {
   try {
-    const { pid } = await Post.findById(req.params);
-    const post = await Post.findById(pid)
+    const { pid } = req.params;
+    const post = await Post.findById(pid);
     if(!post){
       return res.status(404).json({
         success: false,
@@ -72,29 +72,44 @@ export const getPostById = async (req, res) => {
 };
 
 export const filterPosts = async (req, res) => {
-
   try {
-    const { course } = req.query;
-    const query = { status: true };
-    if (course) {
-      query.course = course;
-    }
-    const posts = await Post.find(query).sort({ date: -1 });
+    const { course, title, sortByDate, startDate, endDate } = req.query;
+
+    const query = {
+      status: true,
+      ...(course ? { course } : {}),
+      ...(title ? { title: { $regex: title, $options: 'i' } } : {}),
+      ...(startDate && endDate
+        ? { date: { $gte: new Date(startDate), $lte: new Date(endDate) } }
+        : startDate
+        ? { date: { $gte: new Date(startDate), $lt: new Date(new Date(startDate).setDate(new Date(startDate).getDate() + 1)) } }
+        : {})
+    };
+
+    const sortOptions = sortByDate
+      ? { date: sortByDate === 'asc' ? 1 : -1 }
+      : {};
+
+    const posts = await Post.find(query).sort(sortOptions);
+
     return res.status(200).json({
       success: true,
       posts,
     });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({
+      success: false,
+      msg: "Error filtering posts",
+      error: err.message,
+    });
   }
-}
-
+};
 
 export const addComment = async (req, res) => {
   try {
     const { username, text } = req.body;
     
-    const post = await Post.findById(req.params.id);
+    const post = await Post.findById(req.params.pid);
     if (!post) return res.status(404).json({ error: "Post no encontrado" });
 
     post.comments.unshift({ username, text });
@@ -107,7 +122,7 @@ export const addComment = async (req, res) => {
 
 export const deletePost = async (req, res) => {
   try {
-    const deleted = await Post.findByIdAndDelete(req.params.id);
+    const deleted = await Post.findByIdAndDelete(req.params.pid);
     if (!deleted) return res.status(404).json({ error: "Post no encontrado" });
     res.status(200).json({ message: "Post eliminado correctamente" });
   } catch (err) {
